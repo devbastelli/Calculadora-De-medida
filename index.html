@@ -1,34 +1,34 @@
 <script>
-  // Função para calcular o tamanho com base nas medidas
+  // Função para calcular o tamanho com base nas medidas selecionadas
   function calcularTamanho() {
-    // Obter as medidas da cliente
-    var busto = parseFloat(document.getElementById("busto").value);
-    var cintura = parseFloat(document.getElementById("cintura").value);
-    var quadril = parseFloat(document.getElementById("quadril").value);
+    // Obter os valores selecionados
+    var busto = document.getElementById("busto").value;
+    var cintura = document.getElementById("cintura").value;
+    var quadril = document.getElementById("quadril").value;
 
     var tamanho = "";
 
     // Lógica para comparar os valores de medida com intervalos
-    if (busto >= 76 && busto <= 80 && cintura >= 57 && cintura <= 61 && quadril >= 85 && quadril <= 89) {
+    if (busto == "76-80" && cintura == "57-61" && quadril == "85-89") {
       tamanho = "34 (PP)";
-    } else if (busto >= 81 && busto <= 85 && cintura >= 62 && cintura <= 66 && quadril >= 90 && quadril <= 94) {
+    } else if (busto == "81-85" && cintura == "62-66" && quadril == "90-94") {
       tamanho = "36 (PP)";
-    } else if (busto >= 86 && busto <= 89 && cintura >= 67 && cintura <= 70 && quadril >= 95 && quadril <= 98) {
+    } else if (busto == "86-89" && cintura == "67-70" && quadril == "95-98") {
       tamanho = "38 (P)";
-    } else if (busto >= 90 && busto <= 93 && cintura >= 71 && cintura <= 74 && quadril >= 99 && quadril <= 102) {
+    } else if (busto == "90-93" && cintura == "71-74" && quadril == "99-102") {
       tamanho = "40 (P)";
-    } else if (busto >= 94 && busto <= 97 && cintura >= 75 && cintura <= 78 && quadril >= 103 && quadril <= 106) {
+    } else if (busto == "94-97" && cintura == "75-78" && quadril == "103-106") {
       tamanho = "42 (M)";
-    } else if (busto >= 98 && busto <= 101 && cintura >= 79 && cintura <= 82 && quadril >= 107 && quadril <= 110) {
+    } else if (busto == "98-101" && cintura == "79-82" && quadril == "107-110") {
       tamanho = "44 (M)";
-    } else if (busto >= 102 && busto <= 105 && cintura >= 83 && cintura <= 86 && quadril >= 111 && quadril <= 114) {
+    } else if (busto == "102-105" && cintura == "83-86" && quadril == "111-114") {
       tamanho = "46 (G)";
-    } else if (busto >= 106 && busto <= 110 && cintura >= 87 && cintura <= 91 && quadril >= 115 && quadril <= 119) {
+    } else if (busto == "106-110" && cintura == "87-91" && quadril == "115-119") {
       tamanho = "48 (G)";
-    } else if (busto >= 111 && busto <= 115 && cintura >= 92 && cintura <= 96 && quadril >= 120 && quadril <= 124) {
+    } else if (busto == "111-115" && cintura == "92-96" && quadril == "120-124") {
       tamanho = "50 (XG)";
     } else {
-      tamanho = "Tamanho não encontrado. Por favor, revise suas medidas.";
+      tamanho = "Tamanho não encontrado. Por favor, revise suas seleções.";
     }
 
     // Exibir o resultado
@@ -36,18 +36,50 @@
   }
 </script>
 
-<!-- Formulário para inserir as medidas -->
+<!-- Formulário com dropdowns para as medidas -->
 <div>
   <label for="busto">Busto (cm):</label>
-  <input type="number" id="busto" placeholder="Informe seu busto">
+  <select id="busto">
+    <option value="76-80">76-80</option>
+    <option value="81-85">81-85</option>
+    <option value="86-89">86-89</option>
+    <option value="90-93">90-93</option>
+    <option value="94-97">94-97</option>
+    <option value="98-101">98-101</option>
+    <option value="102-105">102-105</option>
+    <option value="106-110">106-110</option>
+    <option value="111-115">111-115</option>
+  </select>
 </div>
+
 <div>
   <label for="cintura">Cintura (cm):</label>
-  <input type="number" id="cintura" placeholder="Informe sua cintura">
+  <select id="cintura">
+    <option value="57-61">57-61</option>
+    <option value="62-66">62-66</option>
+    <option value="67-70">67-70</option>
+    <option value="71-74">71-74</option>
+    <option value="75-78">75-78</option>
+    <option value="79-82">79-82</option>
+    <option value="83-86">83-86</option>
+    <option value="87-91">87-91</option>
+    <option value="92-96">92-96</option>
+  </select>
 </div>
+
 <div>
   <label for="quadril">Quadril (cm):</label>
-  <input type="number" id="quadril" placeholder="Informe seu quadril">
+  <select id="quadril">
+    <option value="85-89">85-89</option>
+    <option value="90-94">90-94</option>
+    <option value="95-98">95-98</option>
+    <option value="99-102">99-102</option>
+    <option value="103-106">103-106</option>
+    <option value="107-110">107-110</option>
+    <option value="111-114">111-114</option>
+    <option value="115-119">115-119</option>
+    <option value="120-124">120-124</option>
+  </select>
 </div>
 
 <!-- Botão para calcular -->
