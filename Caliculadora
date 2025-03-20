@@ -1,0 +1,61 @@
+<div class="calculator">
+    <h1>Calculadora de Tamanho</h1>
+
+    <label for="busto">Busto (cm):</label>
+    <input type="number" id="busto" placeholder="Informe seu busto">
+
+    <label for="cintura">Cintura (cm):</label>
+    <input type="number" id="cintura" placeholder="Informe sua cintura">
+
+    <label for="quadril">Quadril (cm):</label>
+    <input type="number" id="quadril" placeholder="Informe seu quadril">
+
+    <button onclick="calcularTamanho()">Obter Tamanho</button>
+
+    <div class="result" id="resultado">
+        <!-- Resultado aparecerá aqui -->
+    </div>
+</div>
+
+<script>
+    function calcularTamanho() {
+        const busto = parseInt(document.getElementById('busto').value);
+        const cintura = parseInt(document.getElementById('cintura').value);
+        const quadril = parseInt(document.getElementById('quadril').value);
+
+        const tabela = [
+            { num: 34, tamanho: "PP", busto: [76, 80], cintura: [57, 61], quadril: [85, 89] },
+            { num: 36, tamanho: "PP", busto: [81, 85], cintura: [62, 66], quadril: [90, 94] },
+            { num: 38, tamanho: "P", busto: [86, 89], cintura: [67, 70], quadril: [95, 98] },
+            { num: 40, tamanho: "P", busto: [90, 93], cintura: [71, 74], quadril: [99, 102] },
+            { num: 42, tamanho: "M", busto: [94, 97], cintura: [75, 78], quadril: [103, 106] },
+            { num: 44, tamanho: "M", busto: [98, 101], cintura: [79, 82], quadril: [107, 110] },
+            { num: 46, tamanho: "G", busto: [102, 105], cintura: [83, 86], quadril: [111, 114] },
+            { num: 48, tamanho: "G", busto: [106, 110], cintura: [87, 91], quadril: [115, 119] },
+            { num: 50, tamanho: "XG (ou GG)", busto: [111, 115], cintura: [92, 96], quadril: [120, 124] }
+        ];
+
+        let tamanhoSugerido = "Não foi possível encontrar um tamanho correspondente.";
+
+        for (let i = 0; i < tabela.length; i++) {
+            const faixaBusto = tabela[i].busto;
+            const faixaCintura = tabela[i].cintura;
+            const faixaQuadril = tabela[i].quadril;
+
+            if (
+                busto >= faixaBusto[0] && busto <= faixaBusto[1] &&
+                cintura >= faixaCintura[0] && cintura <= faixaCintura[1] &&
+                quadril >= faixaQuadril[0] && quadril <= faixaQuadril[1]
+            ) {
+                tamanhoSugerido = `O tamanho sugerido é: ${tabela[i].tamanho} (Numeração: ${tabela[i].num})`;
+                break;
+            }
+        }
+
+        document.getElementById('resultado').innerHTML = tamanhoSugerido;
+    }
+</script>
+
+<style>
+    /* Inclua o CSS da calculadora aqui (o mesmo do código anterior) */
+</style>
